@@ -39,7 +39,7 @@ https://github.ncsu.edu/lkhuran/HW0-DevOps.git
 
 2. Store the keypair in the same folder. Two files will be there key and key.pub. Copy the key.pub file and put it as the value of the public_key field of the data1 json object in the createkeys function of the index.js file.
 
-3. Now we will finish the first 5 tasks (list regions, list images, create keys, create droplet and print droplet info) first and comment the delete droplet function(//await client.deleteDroplet(dropletId);). 
+3. Now we will finish the first 5 tasks (list regions, list images, create keys, create droplet and print droplet info.
 
 4. Now we will run the code by typing :
     node index.js
@@ -48,17 +48,13 @@ https://github.ncsu.edu/lkhuran/HW0-DevOps.git
 5. Now ping the ip address of the droplet that is printed. You should be able to ping the same.
 
 6. You can also ssh into the droplet by 
-    ssh - <key_file> root@<IP>
-
-7. Now manually delete the key from the digital ocean account and comment the createDroplet() finction in the code and uncomment the deleteDroplet function.
-
-8. Again run node index.js
-
-9. Now the droplet has been deleted and you can verify by doing a ping .
+    ssh - <key_file> root@ <IP>
 
 
 
-2. AWS
+
+
+### 2. AWS
 
 ## Prerequisites
 1. Make sure that you have a account on AWS.
@@ -98,6 +94,10 @@ This can also be done using a credentials.json file and saving these two keys in
 6. You can ping the public Ip by ping <IP>
 
 7. You can also ssh in the VM by typing 
-    
+
+ssh -i <key.pem> ec2-user@<public_ip>
+
+
+### Note:Opunit checks and the Moodle and Stack Overflow Pages have been shown in the screencast.
 
 
