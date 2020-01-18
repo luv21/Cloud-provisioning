@@ -3,9 +3,10 @@
 
 This Homework helps to automate the provisioning of VM's from two cloud providers namely:
 1) Digital Ocean
+
 2)AWS
 
-## Repository COntents
+## Repository Contents
 
 The repository has two folders each for the two cloud providers. Both the folders contain the code code to perform the tasks mentioned in the Homework. The instructions to run the code have been given below:
 
