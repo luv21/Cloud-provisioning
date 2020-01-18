@@ -83,7 +83,7 @@ class DigitalOceanProvider
 		var data1=
 		{
 			"name": "My SSH Public Key",
-			"public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMIrZnZc/7cpohSyEz4d9oZ5op4STBjhZKHw26IEI6VZvgNGITVBwuJYlOgrb2dukARvDh5pSh+NA7HFP/nC9REojnmfqvoxFuWtHSYpx0WyLRdnDK+OkV4cSMUMBHndIYSYg1/dYbY2nQfgqZKX8lt6kOLyjogclehUC2FEJn/s0rgG0ij9cb08WVgAnT/7w2ahCg5gh1lZau6p/y/iWQtKKul9Ap+kYKygIKbFXJyPpD4Z/gajRKWY4CaCtWwNoWQFYTumGApd6qHzqBx9VTk+6R5g4ZYJsjVXw6wjM2fmqudfG1/HRf3HLklvULq6hybnDCkk8d5THApamYamqkxIAq5gEVKD28nNomQsA6fBZy6HeOYuMdT3gSVhm3bXwsIxpr5FvSwm0oMuHzYDsNWMhzjpct7IV77yHEBi1coflWAAQ0CEtP33bYbrebb9GUsr+btLKhJdoqFbwI5TFM1H9NdZcSzQscj+jPy3gCBF3ckLZYw3CMCtgZPgFG6RU= khura@DESKTOP-9QGI9DI"
+			"public_key": ""
 
 		}
 		let response = await got.post(`https://api.digitalocean.com/v2/account/keys`, 
@@ -260,7 +260,7 @@ async function provision()
 	// #############################################
 	// #6 Extend the client to DESTROY the specified droplet.
 	// https://developers.digitalocean.com/documentation/v2/#delete-a-droplet
-	await client.deleteDroplet(dropletId);
+	//await client.deleteDroplet(dropletId);
 
 	// #############################################
 	// #7 In the command line, ping your server, make sure it is dead!i
