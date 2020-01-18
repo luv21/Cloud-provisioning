@@ -1,4 +1,4 @@
-#### HW0-DevOps
+### HW0-DevOps
 #CSC-519 HW0
 
 This Homework helps to automate the provisioning of VM's from two cloud providers namely:
