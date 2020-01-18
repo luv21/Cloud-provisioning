@@ -4,6 +4,7 @@ const os     = require('os');
 
 var config = {};
 var ssh_key_id;
+var dropletId;
 // Retrieve our api token from the environment variables.
 config.token = process.env.NCSU_DOTOKEN;
 
@@ -147,6 +148,7 @@ class DigitalOceanProvider
 		if(response.statusCode == 202)
 		{
 			console.log(chalk.green(`Created droplet id ${response.body.droplet.id}`));
+			dropletId=response.body.droplet.id;
 		}
 	}
 
@@ -172,7 +174,7 @@ class DigitalOceanProvider
 	
 			// Print out IP address
 			for (let key of droplet.networks.v4){
-				console.log(key.ip_address)
+				console.log("Ip- Address of the droplet",key.ip_address)
 			};
 		}
 
@@ -216,7 +218,7 @@ async function provision()
 	// Comment out when completed.
 	// https://developers.digitalocean.com/documentation/v2/#list-all-regions
 	// use 'slug' property
-	await client.listRegions();
+	//await client.listRegions();
 
 	// #############################################
 	// #2 Extend the client object to have a listImages method
@@ -224,9 +226,9 @@ async function provision()
 	// https://developers.digitalocean.com/documentation/v2/#images
 	// - Print out a list of available system images, that are AVAILABLE in a specified region.
 	// - use 'slug' property or id if slug is null
-	await client.listImages();
+	//await client.listImages();
 
-	//await client.createKeys();
+	await client.createKeys();
 
 	// #############################################
 	// #3 Create an droplet with the specified name, region, and image
@@ -234,11 +236,11 @@ async function provision()
 	var name = "lkhuran"+os.hostname();
 	var region = "nyc1"; // Fill one in from #1
 	var image = "ubuntu-18-04-x64"; // Fill one in from #2
-	//await client.createDroplet(name, region, image, ssh_key_id);
+	await client.createDroplet(name, region, image, ssh_key_id);
 
 	// Record the droplet id that you see print out in a variable.
 	// We will use this to interact with our droplet for the next steps.
-	var dropletId = 175959005 ;
+	//var dropletId = 175959005 ;
 
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	// BEFORE MOVING TO STEP FOR, REMEMBER TO COMMENT OUT THE `createDroplet()` call!!!
@@ -258,7 +260,7 @@ async function provision()
 	// #############################################
 	// #6 Extend the client to DESTROY the specified droplet.
 	// https://developers.digitalocean.com/documentation/v2/#delete-a-droplet
-	//await client.deleteDroplet(dropletId);
+	await client.deleteDroplet(dropletId);
 
 	// #############################################
 	// #7 In the command line, ping your server, make sure it is dead!i
