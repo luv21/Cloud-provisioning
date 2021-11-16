@@ -11,6 +11,6 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "got": "^9.6.0",
-    "aws-sdk": "2.603.0"
+    "aws-sdk": "2.814.0"
   }
 }
